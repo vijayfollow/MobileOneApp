@@ -1,0 +1,120 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/EcommerceJS/admin.js"></script>
+<div>
+    <div><a href="#AddProducts"></a></div>
+    <div><a href="#ViewProducts"></a></div>
+    <div><a href="#DeleteProducts"></a></div>
+</div>
+
+
+
+<table class="table table-condensed" style="width:70%;margin:0px auto;">
+    <tr>
+        <td>
+           Product Name
+        </td>
+        <td>
+            <input type="text" id="txtProductName" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Model Number
+        </td>
+        <td>
+            <input type="text" id="txtModel" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Image
+        </td>
+        <td>
+            <input type="file" id="imageUpload" name="image" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Price
+        </td>
+        <td>
+            <input type="number" id="txtPrice" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Currency
+        </td>
+        <td>
+            <select id="drpCurrency"></select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            SimType
+        </td>
+        <td>
+            <select id="drpSimType">
+                <option value="1">Single Sim</option>
+                <option value="2">Dual Sim</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Battery Capacity
+        </td>
+        <td>
+            <input type="number" id="btrCapacity" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Internal Storage
+        </td>
+        <td>
+            <input type="number" id="txtStorage" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            RAM
+        </td>
+        <td>
+            <input type="number" id="txtRam" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description
+        </td>
+        <td>
+            <input type="text" id="txtDesc" />
+        </td>
+    </tr>
+    <tr>
+       <td><input  class="btn btn-info" type="submit" onclick="AddProducts()"/></td>
+        <td></td>
+    </tr>
+</table>
+
+<div>&nbsp;</div>
+<div id="">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th> Product Name </th>
+                <th> Model Name </th>
+                <th> Description </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tblProducts"></tbody>
+    </table>
+</div>

@@ -1,0 +1,15 @@
+﻿body {
+}
+
+.main-div{
+    margin-bottom:35px;
+}
+
+.anchor-link {
+    cursor: pointer;
+}
+
+.product-image {
+    height: 200px;
+    width: 125px;
+}

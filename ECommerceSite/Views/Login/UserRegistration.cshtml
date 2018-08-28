@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "UserRegistration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/EcommerceJS/userregistration.js"></script>
+<table>
+    <tr>
+        <td>User Name</td>
+        <td><input type="text" id="txtUserName" /></td>
+    </tr>
+    <tr>
+        <td>First Name</td>
+        <td><input type="text" id="txtFName" /></td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td><input type="text" id="txtLName" /></td>
+    </tr>
+    <tr>
+        <td>Email Id</td>
+        <td><input type="text" id="txtEMail" /></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td><input type="password" id="txtPwd" /></td>
+    </tr>
+    <tr>
+        <td>Confirm Password</td>
+        <td><input type="password" id="txtCPwd" /></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="checkbox" id="chkTC" />
+            <label>I Accept Terms and Conditions</label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" value="Register" id="btnRegister" onclick="Register()" />
+        </td>
+    </tr>
+</table>
+

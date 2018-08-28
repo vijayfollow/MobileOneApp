@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="~/EcommerceJS/login.js"></script>
+<table>
+    <tr>
+        <td>
+            User Name : 
+        </td>
+        <td>
+            <input type="text" id="usrName" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            PassWord :
+        </td>
+        <td>
+            <input type="password" id="pwd" />
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="button" id="btnLogin" value="Login" onclick="Login()" />
+        </td>
+    </tr>
+</table>
+
