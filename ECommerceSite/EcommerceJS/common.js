@@ -1,6 +1,6 @@
 ﻿var APIurl = "";
 
-var chw = "";
+//var check1 = "";
 
 var Home = {
     GetApi: "/Home/GetApiURL"
