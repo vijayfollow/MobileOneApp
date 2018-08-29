@@ -1,5 +1,7 @@
 ﻿var APIurl = "";
 
+var chw = "";
+
 var Home = {
     GetApi: "/Home/GetApiURL"
 }
