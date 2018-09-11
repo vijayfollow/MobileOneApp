@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="DTO\ListToDataTable.cs" />
     <Compile Include="DTO\Products.cs" />
+    <Compile Include="DTO\ReviewAndRatings.cs" />
+    <Compile Include="DTO\SearchProducts.cs" />
     <Compile Include="Interface\iLogin.cs" />
     <Compile Include="Interface\iProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,8 +11,14 @@ namespace DataAccessLayer
     {
         DataTable GetCurrency();
         DataTable GetProducts();
-        int InsertProducts(Products productData);
+        int InsertUpdateProducts(Products productData);
         int DeleteProduct(int ProductId);
         DataTable ViewProduct(int ProductId);
+        int OrderProduct(UserData OrderData);
+        DataTable SearchProduct(SearchProducts searchItems);
+        DataTable AddReviewAndRating(ReviewAndRatings ReviewsAndRatings);
+        DataTable GetReviewAndRating(ReviewAndRatings ProductData);
+        DataTable GetOrders();
+        int RejectOrder(int OrderId);
     }
 }

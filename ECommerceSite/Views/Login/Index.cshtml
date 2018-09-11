@@ -3,28 +3,38 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script src="~/EcommerceJS/login.js"></script>
-<table>
-    <tr>
-        <td>
-            User Name : 
-        </td>
-        <td>
-            <input type="text" id="usrName" />
-        </td>
-    </tr>
-    <tr>
-        <td>
-            PassWord :
-        </td>
-        <td>
-            <input type="password" id="pwd" />
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2">
-            <input type="button" id="btnLogin" value="Login" onclick="Login()" />
-        </td>
-    </tr>
-</table>
 
+<div class="row" style="margin-top:100px">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mb-4">
+        <section>
+            <div class="text-center border border-light p-5">
+
+                <p class="h4 mb-4">Sign in</p>
+                <div class="input-group margin-bottom-sm mb-4">
+                    <span class="input-group-addon"><i class="fa fa-user-o"></i></span>
+                    <input id="usrName"  class="form-control" type="text" placeholder="User Name">
+                </div>
+                <div class="input-group margin-bottom-sm mb-4">
+                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                    <input id="pwd" class="form-control" type="text" placeholder="PassWord">
+                </div>
+                @*<i class="fa fa-sign-in" aria-hidden="true"></i>*@
+                <!-- Email -->
+                @*<input type="text" id="usrName" class="form-control mb-4" placeholder="User Name">*@
+                <!-- Password -->
+                @*<input type="password" id="pwd" class="form-control mb-4" placeholder="PassWord">*@
+                <!-- Sign in button -->
+                <input type="button" class="btn btn-info btn-block mb-4" value="Sign in" id="btnLogin" onclick="Login()" />
+                <!-- Register -->
+                <p>
+                    Not a member?
+                    <a href="../Login/UserRegistration">Register</a>
+                </p>
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<script src="~/EcommerceJS/login.js"></script>

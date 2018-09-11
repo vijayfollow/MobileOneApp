@@ -18,6 +18,10 @@ namespace ECommerceSite.Controllers
             ViewBag.ProductId = productId;
             return View();
         }
-        //ViewProduct
+        public ActionResult BuyProduct(string productId)
+        {
+            ViewBag.ProductId = productId;
+            return View();
+        }
     }
 }

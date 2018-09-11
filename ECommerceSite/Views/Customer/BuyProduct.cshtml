@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "BuyProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    var productId = '@ViewBag.ProductId';
+</script>
+<style>
+    .mb-4, .my-4 {
+        margin-bottom: 1.5rem !important;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mb-4">
+        <section>
+            <div class="text-center border border-light p-5">
+
+                <p class="h4 mb-4">Order Product</p>
+                <input type="text" id="txtFName" class="form-control mb-4" placeholder="First Name">
+                <input type="text" id="txtLName" class="form-control mb-4" placeholder="Last Name">
+                <input type="text" id="txtEmail" class="form-control mb-4" placeholder="EMail ID">
+                <input type="number" id="txtMobileNo" class="form-control mb-4" placeholder="Mobile Number">
+                <input type="text" id="txtAddress" class="form-control mb-4" placeholder="Address">
+                <select id="drpCountry" class="form-control mb-4">
+                    <option value="1">India</option>
+                </select>
+                <select id="drpState" class="form-control mb-4">
+                    <option value="1">Tamil Nadu</option>
+                </select>
+                <select id="drpCity" class="form-control mb-4">
+                    <option value="1">Chennai</option>
+                    <option value="2">Kanchipuram</option>
+                </select>
+
+                <!-- Sign in button -->
+                <input type="button" class="btn btn-info btn-block mb-4" value="Place Order" id="btnPlaceOrder" onclick="PlaceOrder()" />
+            </div>
+        </section>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+<div style="clear:both"></div>
+
+@section Scripts{
+<script src="~/EcommerceJS/placeorder.js"></script>
+}

@@ -4,7 +4,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <script src="~/EcommerceJS/userregistration.js"></script>
-<table>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4 mb-4">
+        <section>
+            <div class="text-center border border-light p-5">
+                <p class="h4 mb-4">Register</p>
+                <input type="text" id="txtUserName" class="form-control mb-4" placeholder="User Name">
+                <input type="text" id="txtFName" class="form-control mb-4" placeholder="First Name">
+                <input type="text" id="txtLName" class="form-control mb-4" placeholder="Last Name">
+                <input type="text" id="txtEMail" onblur="MailValidation('#txtEMail')" class="form-control mb-4" placeholder="Email Id">
+                <input type="password" id="txtPwd" onblur="PasswordValidation('#txtPwd')" class="form-control mb-4" placeholder="Password">
+                <input type="password" id="txtCPwd" onblur="ConfirmValidation('#txtCPwd','#txtPwd')" class="form-control mb-4" placeholder="Confirm Password">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="chkTC">
+                    <label class="form-check-label" for="materialLoginFormRemember">I Accept Terms and Conditions</label>
+                </div>
+                <input type="button"  class="btn btn-info btn-block mb-4" value="Register" id="btnRegister" onclick="Register()" />
+                <p>
+                    Already a member?
+                    <a href="../Login/Index">Go To Login</a>
+                </p>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+
+@*<table>
     <tr>
         <td>User Name</td>
         <td><input type="text" id="txtUserName" /></td>
@@ -40,5 +68,10 @@
             <input type="button" value="Register" id="btnRegister" onclick="Register()" />
         </td>
     </tr>
-</table>
+    <tr>
+        <td>
+            <a href="../Login/Index"> Go To Login </a>
+        </td>
+    </tr>
+</table>*@
 

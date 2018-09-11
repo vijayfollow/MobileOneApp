@@ -30,9 +30,10 @@ namespace DataAccessLayer.Repositories
             return status;
         }
 
-        public int UserLogin(UserData loginData)
+        public DataTable UserLogin(UserData loginData)
         {
-            int status = 0;
+            //int status = 0;
+            DataTable login = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
                 conn.Open();
@@ -40,9 +41,10 @@ namespace DataAccessLayer.Repositories
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@UserName", loginData.UserName);
                 cmd.Parameters.AddWithValue("@Password", loginData.Password);
-                status = Convert.ToInt16(cmd.ExecuteScalar());
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(login);
             }
-            return status;
+            return login;
         }
 
     }

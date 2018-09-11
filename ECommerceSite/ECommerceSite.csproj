@@ -157,23 +157,59 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ValidationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\ProductImages\Ironbox.jpeg" />
+    <Content Include="ECommerceCSS\admin.css" />
     <Content Include="ECommerceCSS\customer.css" />
+    <Content Include="ECommerceCSS\font-awesome\css\font-awesome.css" />
+    <Content Include="ECommerceCSS\font-awesome\css\font-awesome.min.css" />
+    <Content Include="ECommerceCSS\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="ECommerceCSS\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="ECommerceCSS\LayoutCSS\bootstrap-slider.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\css\main.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\css\main.min.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\css\util.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\css\util.min.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\layout.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\select2\select2.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\select2\select2.js" />
+    <Content Include="ECommerceCSS\LayoutCSS\select2\select2.min.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\select2\select2.min.js" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\ajax-loader.gif" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\fonts\slick.svg" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick-theme.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick.css" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick.js" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick.min.js" />
+    <Content Include="ECommerceCSS\util.css" />
     <Content Include="EcommerceJS\admin.js" />
+    <Content Include="EcommerceJS\bootstrap-slider.js" />
     <Content Include="EcommerceJS\common.js" />
     <Content Include="EcommerceJS\config.js" />
     <Content Include="EcommerceJS\customer.js" />
+    <Content Include="EcommerceJS\customersearch.js" />
     <Content Include="EcommerceJS\enumeration.js" />
+    <Content Include="EcommerceJS\LayoutJs\layout.js" />
     <Content Include="EcommerceJS\login.js" />
+    <Content Include="EcommerceJS\Notify\notify.js" />
+    <Content Include="EcommerceJS\Notify\notify.min.js" />
+    <Content Include="EcommerceJS\noui\nouislider.css" />
+    <Content Include="EcommerceJS\noui\nouislider.js" />
+    <Content Include="EcommerceJS\noui\nouislider.min.css" />
+    <Content Include="EcommerceJS\noui\nouislider.min.js" />
+    <Content Include="EcommerceJS\ordertrackingandmanaging.js" />
+    <Content Include="EcommerceJS\placeorder.js" />
     <Content Include="EcommerceJS\products.js" />
+    <Content Include="EcommerceJS\reviewandratings.js" />
     <Content Include="EcommerceJS\userregistration.js" />
     <Content Include="EcommerceJS\viewproduct.js" />
     <Content Include="favicon.ico" />
@@ -185,7 +221,53 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ECommerceCSS\LayoutCSS\slick\config.rb" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\fonts\slick.eot" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\fonts\slick.ttf" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\fonts\slick.woff" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick-theme.less" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick-theme.scss" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick.less" />
+    <Content Include="ECommerceCSS\LayoutCSS\slick\slick.scss" />
+    <Content Include="ECommerceCSS\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="ECommerceCSS\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="ECommerceCSS\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="ECommerceCSS\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="ECommerceCSS\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="ECommerceCSS\font-awesome\less\animated.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\bordered-pulled.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\core.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\fixed-width.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\font-awesome.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\icons.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\larger.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\list.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\mixins.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\path.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\rotated-flipped.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\screen-reader.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\stacked.less" />
+    <Content Include="ECommerceCSS\font-awesome\less\variables.less" />
+    <Content Include="ECommerceCSS\font-awesome\scss\font-awesome.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_animated.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_core.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_icons.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_larger.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_list.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_mixins.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_path.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_stacked.scss" />
+    <Content Include="ECommerceCSS\font-awesome\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\MobileOneShop - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\VijiJenkinsWebapp - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\VijiJenkinsWebapp - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\DataTable\jquery.dataTables.min.css" />
+    <Content Include="Scripts\DataTable\jquery.dataTables.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -215,10 +297,15 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Customer\ViewProduct.cshtml" />
+    <Content Include="Views\Customer\BuyProduct.cshtml" />
+    <Content Include="Views\Shared\_ECommerceLayout.cshtml" />
+    <Content Include="Views\Admin\ViewProducts.cshtml" />
+    <Content Include="Views\Admin\_EditProducts.cshtml" />
+    <Content Include="Views\Admin\OrderTracking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Validation\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -234,6 +321,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{df972cea-35ec-48a1-b8f5-3858bc9ec4dd}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

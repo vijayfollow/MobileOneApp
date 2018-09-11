@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "ViewProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/ECommerceCSS/admin.css" rel="stylesheet" />
+
+<h2>ViewProducts</h2>
+
+
+
+<!-- Modal -->
+<div id="editProductModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Product</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("_EditProducts")
+            </div>
+            @*<div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>*@
+        </div>
+
+    </div>
+</div>
+
+<div id="">
+    <table id="admin-products" class="table table-bordered">
+        <thead>
+            <tr>
+                <th> Product Name </th>
+                <th> Model Name </th>
+                <th> Image </th>
+                <th> Description </th>
+                @*<th></th>*@
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tblProducts"></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/EcommerceJS/admin.js"></script>
+}

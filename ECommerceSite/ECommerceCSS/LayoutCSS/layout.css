@@ -1,0 +1,59 @@
+﻿a:hover {
+    color: coral;
+}
+
+a {
+    color: #666666;
+    text-decoration: none !important;
+}
+
+ul, li {
+    margin: 0px;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.mb-1 {
+    margin-bottom: 0.5rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.border-light {
+    border-color: #e0e0e0 !important;
+}
+
+.p-5 {
+    padding: 3rem !important;
+}
+
+.border {
+    border: 1px solid #dee2e6 !important;
+}
+
+.s-text13 {
+    font-family: Montserrat-Regular;
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.8;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.header-color {
+    background-color: #5bd2de;
+    border-color: #46b8da;
+}
+
+.nav > li.active {
+    text-decoration: none;
+    background-color: #eeeeee;
+}

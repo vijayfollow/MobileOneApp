@@ -26,6 +26,8 @@ $(document).ready(function () {
             simTypeId == SimType.Single ? $(simTypeId).html("Single") : $(simTypeId).html("Double");
             $(ramId).html(data[0].RAM + "GB");
             $(btryId).html(data[0].BatteryCapacity + "mAh");
+            var ratingsString = GetRatingString(data[0].Ratings);
+            $("#overall-ratings-overview").append(ratingsString);
             //alert('hi')
             //GetProducts(AdminProducts);
         }, error: function (err) {
@@ -33,3 +35,7 @@ $(document).ready(function () {
         }
     });
 });
+
+function BuyNow() {
+    window.location.href = "../Customer/BuyProduct?ProductId=" + productId;
+}

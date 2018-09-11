@@ -10,6 +10,6 @@ namespace DataAccessLayer
     public interface iLogin
     {
         int InsertRegistration(UserData userData);
-        int UserLogin(UserData loginData);
+        //int UserLogin(UserData loginData);
     }
 }

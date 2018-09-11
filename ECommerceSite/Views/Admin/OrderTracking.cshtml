@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "OrderTracking";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/ECommerceCSS/admin.css" rel="stylesheet" />
+
+<h2 style="text-align:center">OrderTracking</h2>
+
+<div>
+    <table id="order-tracking" class="table table-bordered">
+        <thead>
+            <tr>
+                <th> User Name </th>
+                <th> Product Name </th>
+                <th> Image </th>
+                <th> Ordered Date </th>
+                <th> Delivery Date </th>
+                <th> Order Status </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tblOrderTracking"></tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/EcommerceJS/ordertrackingandmanaging.js"></script>
+}

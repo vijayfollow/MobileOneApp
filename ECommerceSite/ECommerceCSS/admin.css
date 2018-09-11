@@ -1,0 +1,22 @@
+﻿.admin-img-show {
+    text-align: center;
+    width: 60px;
+    height: 80px;
+}
+
+.admin-btn-space {
+    margin: 5px;
+}
+
+.Order-Succeess {
+    color: #28a745 !important;
+}
+
+.Order-Failure {
+    color: #dc3545 !important;
+}
+
+.Order-Pending {
+    color: #007bff !important;
+}
+/*color: #007bff!important;*/

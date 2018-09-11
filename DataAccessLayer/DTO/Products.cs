@@ -10,6 +10,7 @@ namespace DataAccessLayer
     {
         public int ProductId { get; set; }
         public int UserId { get; set; }
+        public int ModelId { get; set; }
         public string ModelName { get; set; }
         public string ProductName { get; set; }
         public string ImageName { get; set; }
@@ -19,5 +20,16 @@ namespace DataAccessLayer
         public int SimType { get; set; }
         public int BatteryCapacity { get; set; }
         public int RAM { get; set; }
+        public int Storage { get; set; }
+        public int InsertUpdateType { get; set; }
+
+        public int OrderId { get; set; }
+        
+
+    }
+    public enum InsertUpdateType
+    {
+        Insert = 1,
+        Update = 2
     }
 }

@@ -15,7 +15,12 @@ namespace ECommerceSite.Controllers
             return View();
         }
 
-        public ActionResult Check()
+        public ActionResult ViewProducts()
+        {
+            return View();
+        }
+
+        public ActionResult OrderTracking()
         {
             return View();
         }

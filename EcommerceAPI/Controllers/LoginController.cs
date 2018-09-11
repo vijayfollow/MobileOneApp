@@ -22,11 +22,11 @@ namespace EcommerceAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, status);
         }
 
-        public HttpResponseMessage UserLogin(UserData loginData)
-        {
-            int status = _iLoginRepository.UserLogin(loginData);
-            return Request.CreateResponse(HttpStatusCode.OK, status);
-        }
+        //public HttpResponseMessage UserLogin(UserData loginData)
+        //{
+        //    int status = _iLoginRepository.UserLogin(loginData);
+        //    return Request.CreateResponse(HttpStatusCode.OK, status);
+        //}
 
     }
 }

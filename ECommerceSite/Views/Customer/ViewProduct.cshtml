@@ -4,49 +4,71 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<script src="~/EcommerceJS/customer.js"></script>*@
-<script src="~/EcommerceJS/viewproduct.js"></script>
-<script src="~/EcommerceJS/enumeration.js"></script>
-
-<script>
-    var productId = '@ViewBag.ProductId';   
-</script>
-
-<h2>ViewProduct</h2>
+<style>
+    .buy-btn-width {
+        width: 60% !important;
+    }
+    /*div#overall-ratings-overview i {
+        color: green;
+    }*/
+    .prd-price {
+        font-size: 28px;
+    }
+    .table-wrapper-scroll-y {
+        display: block;
+        max-height: 200px;
+        overflow-y: auto;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    .low-rating{
+        color:red;
+    }
+    .high-rating{
+        color:green;
+    }
+</style>
 <div>&nbsp;</div>
-<div class="col-md-12 col-xs-12 col-sm-12">
-    <div class="col-md-4 col-xs-4 col-sm-4">
-        <div style="height: 200px;">
-            <div style="height: 200px; width: 200px;">
-                <img id="productImage"  style="height :200px;width:200px">
+<div class="col-lg-12">
+    <div class="col-lg-3">
+        <div>
+            <div>
+                <img id="productImage" style="height :250px;width:140px">
             </div>
         </div>
         <div>&nbsp;</div>
-        @*<input type="button" id="btnAddToCart" class="btn btn-primary" value="ADD TO CART" />*@
-        <input type="button" id="btnBuyNow" class="btn btn-primary" value="BUY NOW" />
+        <div>
+            <input type="button" id="btnBuyNow" class="btn btn-info btn-block mb-4 buy-btn-width" onclick="BuyNow()" value="BUY NOW" />
+        </div>       
+        <input type="hidden" id="hdnProductId" />
     </div>
-    <div class="col-md-7 col-xs-7 col-sm-7">
-        <div class="col-md-12 col-xs-12 col-sm-12">
+    <div class="col-lg-8">
+      
+        <div class="col-lg-12">
             <h1 style="margin:0">
                 <label id="prdName"></label>
             </h1>
+            <div>
+               <div id="overall-ratings-overview"></div>
+            </div>
         </div>
-        <div class="col-md-12 col-xs-12 col-sm-12">
-            <div id="divPrice"></div>
+        
+        
+        <div class="col-lg-12">
+            <div id="divPrice" class="prd-price"></div>
         </div>
         <div>&nbsp;</div>
-        <div class="col-md-12 col-xs-12 col-sm-12">
+        <div class="col-lg-12">
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td colspan="2"> 
-                            <label>Product Description :</label> 
+                        <td colspan="2">
+                            <label>Product Description :</label>
                             <div id="desc"></div>
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <label>Specifications</label>                            
+                            <label>Specifications</label>
                         </td>
                     </tr>
                     <tr>
@@ -71,10 +93,70 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="col-lg-12">
+            <label> Review & Ratings </label>
+            <div>
+                <label> Add Ratings </label>
+                <i class="fa fa-star-o pointer ratings" onclick="Ratings(1)"></i>
+                <i class="fa fa-star-o pointer ratings" onclick="Ratings(2)"></i>
+                <i class="fa fa-star-o pointer ratings" onclick="Ratings(3)"></i>
+                <i class="fa fa-star-o pointer ratings" onclick="Ratings(4)"></i>
+                <i class="fa fa-star-o pointer ratings" onclick="Ratings(5)"></i>
+
+            </div>
+            <div>
+                <label> Add Comment</label>
+                <textarea class="col-lg-12 mb-4" id="txtComment"> </textarea>
+                <input type="submit" value="Submit Review & Ratings" class="btn btn-info mb-4" onclick="ReviewsAndRatings()" />
+            </div>
+            <div class="col-lg-12">
+                <div class="row table-wrapper-scroll-y">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Ratings </th>
+                                <th> Comments </th>
+                            </tr>                           
+                        </thead>
+                        <tbody  id="row-reviewandratings">
+
+                        </tbody>
+                    </table>
+                    @*<div>
+                        <label>Ratings </label>
+                        <div id="ratings-overview"></div>
+                        <div id="comments-overview"></div>
+                    </div>*@
+                    @*<div class="col-lg-8">
+                        <label>User Comments</label>
+                        <div id="comments-overview">
+
+                        </div>
+                    </div>*@                    
+                </div>
+
+              
+            </div>
+
+
+        </div>
+
     </div>
 </div>
 
 <div style="clear:both"></div>
+
+
+@section Scripts{
+    <script>
+    var productId = '@ViewBag.ProductId';
+    </script>
+    <script src="~/EcommerceJS/viewproduct.js"></script>
+    <script src="~/EcommerceJS/enumeration.js"></script>
+    <script src="~/EcommerceJS/reviewandratings.js"></script>
+}
+
 
 
 

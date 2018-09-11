@@ -12,9 +12,18 @@ namespace DataAccessLayer.Common
         public const string UserLogin = "UserLogin";
         //GetCurrency
         public const string GetCurrency = "GetCurrency";
-        public const string InsertProducts = "InsertProducts";
+        public const string InsertUpdateProducts = "InsertUpdateProducts";
         public const string GetProducts = "GetProducts";
         public const string DeleteProduct = "DeleteProduct";
+        public const string OrderProduct = "OrderProduct";
         public const string ViewProduct = "GetProductDetailsById";
+        public const string SearchProducts = "SearchProducts";
+        public const string AddReviewAndRatings = "AddReviewAndRatings";
+        public const string GetReviewAndRatings = "GetReviewAndRatings";
+        public const string GetOrders = "GetOrders";
+        public const string RejectOrder = "RejectOrder";
+        //GetReviewAndRatings
+        //SearchProducts
+        //AddReviewAndRatings
     }
 }

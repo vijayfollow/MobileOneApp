@@ -9,7 +9,7 @@ function CustomerProducts(data) {
     if (data) {
         $.each(data, function (key, val) {
             $("#customerProducts").append(
-                '<div class="col-md-3 col-lg-3 col-xs-3 main-div">' +
+                '<div class="col-md-6 col-lg-4 col-xs-12 main-div">' +
                 '<div onclick="ViewProduct(' + val.ProductId + ')">' +
                 '<a title="Extra ₹100 Off">' +
                 '<div>' +
@@ -17,7 +17,7 @@ function CustomerProducts(data) {
                 '</div > ' +
                 '</a> ' +
                 '<div>&nbsp;</div > ' +
-                '<div class="anchor-link"> ' + DescriptionToFixed(val.Description) + '</div > ' +
+                '<div class="anchor-link"> ' + DescriptionToFixed(val.Description, 20) + '</div > ' +
                 '<div class="anchor-link"> ' + '₹ ' + + val.Price + ' </div > ' +
                 '</div> ' +
                 '</div> '
@@ -29,6 +29,26 @@ function CustomerProducts(data) {
 
 function ViewProduct(productId) {
     window.location.href = "../Customer/ViewProduct?productId=" + productId + "";
-
-   
 }
+
+//$(".search-product").click(function () {
+
+//    var productName = [];
+
+//    var productName = $(this).text().trim();
+
+
+//    var searchItems = {
+//        ProductName: productName
+//    }
+
+//    $.ajax({
+//        url: "",
+//        type: 'Get',
+//        dataType: 'json',
+//        data: searchItems,
+//        success: function (data) {
+//        }
+//    });
+
+//})

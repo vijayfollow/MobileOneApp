@@ -1,5 +1,7 @@
 ﻿using DataAccessLayer;
 using DataAccessLayer.Repositories;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -19,7 +21,7 @@ namespace EcommerceAPI.Controllers
         iProducts _iProductsRepository = new ProductsRepository();
 
         [HttpPost]
-        public HttpResponseMessage AddProducts()
+        public HttpResponseMessage InsertUpdateProducts()
         {
             var httpRequest = HttpContext.Current.Request;
 
@@ -30,8 +32,12 @@ namespace EcommerceAPI.Controllers
             Obj.CurrencyId = Convert.ToInt32(httpRequest.Form["Currency"]);
             Obj.SimType = Convert.ToInt32(httpRequest.Form["SimType"]);
             Obj.BatteryCapacity = Convert.ToInt32(httpRequest.Form["BatteryCapacity"]);
+            Obj.Storage = Convert.ToInt32(httpRequest.Form["internalStorage"]);
             Obj.RAM = Convert.ToInt32(httpRequest.Form["RAM"]);
             Obj.Description = httpRequest.Form["Description"];
+            Obj.ModelId = Convert.ToInt32(httpRequest.Form["ModelId"]);
+            Obj.ProductId = Convert.ToInt32(httpRequest.Form["ProductId"]);
+            Obj.InsertUpdateType = Convert.ToInt16(httpRequest.Form["InsertUpdateType"]);
 
             if (httpRequest.Files.Count > 0)
             {
@@ -43,8 +49,13 @@ namespace EcommerceAPI.Controllers
                     postedFile.SaveAs(filePath);
                 }
             }
+            else
+            {
+                if(Obj.InsertUpdateType == (int)InsertUpdateType.Update)
+                Obj.ImageName = httpRequest.Form["ImageName"];
+            }
 
-            int status = _iProductsRepository.InsertProducts(Obj);
+            int status = _iProductsRepository.InsertUpdateProducts(Obj);
             return Request.CreateResponse(HttpStatusCode.OK, status);
         }
 
@@ -74,8 +85,46 @@ namespace EcommerceAPI.Controllers
             DataTable ViewProduct = _iProductsRepository.ViewProduct(ProductData.ProductId);
             return Request.CreateResponse(HttpStatusCode.OK, ViewProduct);
         }
+        [HttpPost]
+        public HttpResponseMessage OrderProduct(UserData orderData)
+        {
+            int OrderProduct = _iProductsRepository.OrderProduct(orderData);
+            return Request.CreateResponse(HttpStatusCode.OK, OrderProduct);
+        }
 
-        //GetCurrency
-        //int InsertProducts(Products productData);
+        [HttpPost]
+        public HttpResponseMessage SearchProduct([FromBody]SearchProducts searchItems)
+        {
+            DataTable SearchProduct = _iProductsRepository.SearchProduct(searchItems);
+            return Request.CreateResponse(HttpStatusCode.OK, SearchProduct);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage AddReviewAndRating(ReviewAndRatings ReviewsAndRatings)
+        {
+            DataTable ReviewRatings = _iProductsRepository.AddReviewAndRating(ReviewsAndRatings);
+            return Request.CreateResponse(HttpStatusCode.OK, ReviewRatings);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage GetReviewAndRating(ReviewAndRatings ProductData)
+        {
+            DataTable ReviewRatings = _iProductsRepository.GetReviewAndRating(ProductData);
+            return Request.CreateResponse(HttpStatusCode.OK, ReviewRatings);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetOrders()
+        {
+            DataTable Orders = _iProductsRepository.GetOrders();
+            return Request.CreateResponse(HttpStatusCode.OK, Orders);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage RejectOrder(Products OrderData)
+        {
+            int Status = _iProductsRepository.RejectOrder(OrderData.OrderId);
+            return Request.CreateResponse(HttpStatusCode.OK, Status);
+        }
     }
 }
