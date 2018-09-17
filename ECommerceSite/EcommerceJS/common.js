@@ -37,9 +37,9 @@ var ProductsURL = {
     //DeleteProduct
 }
 
-var ImgPath = APISiteUrl + "Content/ProductImages/";
+//var ImgPath = APISiteUrl + "Content/ProductImages/";
 
-
+var ImgPath = "https://301chennai.blob.core.windows.net/mobileoneblobcontainer/";
 
 function GetProducts(CallBack) {
     //tblProducts
@@ -71,6 +71,12 @@ function errorDisplay(id, validationFlag) {
 
 function LoadDataTable(tableId, descCol) {
     $(tableId).DataTable({ "aaSorting": [[descCol, "desc"]], "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]] });
+}
+
+function DestroyDataTable(tableId) {
+    if ($.fn.DataTable.isDataTable(tableId)) {
+        $(tableId).DataTable().destroy();
+    }
 }
 
 function GetRatingString(ratings) {

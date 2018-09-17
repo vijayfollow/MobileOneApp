@@ -10,6 +10,7 @@ function AllOrders() {
         dataType: 'json',
         async: false,
         success: function (data) {
+            DestroyDataTable("#order-tracking");
             $("#tblOrderTracking").empty();
 
             $.each(data, function (key, val) {

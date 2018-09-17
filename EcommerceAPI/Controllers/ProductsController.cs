@@ -1,9 +1,12 @@
 ﻿using DataAccessLayer;
 using DataAccessLayer.Repositories;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Linq;
@@ -47,6 +50,14 @@ namespace EcommerceAPI.Controllers
                     Obj.ImageName = postedFile.FileName;
                     var filePath = HttpContext.Current.Server.MapPath("~/Content//ProductImages//" + postedFile.FileName);
                     postedFile.SaveAs(filePath);
+
+                    CloudStorageAccount cloudStorageAccount = GetConnectionString();
+                    CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+                    CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(ConfigurationManager.AppSettings["ContainerName"]);
+
+                    CloudBlockBlob azureBlockBlob = cloudBlobContainer.GetBlockBlobReference(postedFile.FileName);
+                    azureBlockBlob.UploadFromStream(httpRequest.Files[file].InputStream);
+
                 }
             }
             else
@@ -59,10 +70,41 @@ namespace EcommerceAPI.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, status);
         }
 
+        public static CloudStorageAccount GetConnectionString()
+        {
+            string accountname = ConfigurationManager.AppSettings["accountName"];
+            string key = ConfigurationManager.AppSettings["key"];
+            string connectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", accountname, key);
+            return CloudStorageAccount.Parse(connectionString);
+        }
+
         [HttpGet]
         public HttpResponseMessage GetProducts()
         {
             DataTable Products = _iProductsRepository.GetProducts();
+
+            //CloudStorageAccount cloudStorageAccount = GetConnectionString();
+            //CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+            //CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(ConfigurationManager.AppSettings["ContainerName"]);
+            //CloudBlockBlob azureBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+            //Stream blobStream = azureBlockBlob.OpenRead();
+            //return File(blobStream, azureBlockBlob.Properties.ContentType, fileName);
+
+            //CloudStorageAccount cloudStorageAccount = GetConnectionString();
+            //CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+            //CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(ConfigurationManager.AppSettings["ContainerName"]);
+
+            //for (int i = 0; i < Products.Rows.Count; i++)
+            //{
+            //    CloudBlockBlob azureBlockBlob = cloudBlobContainer.GetBlockBlobReference(Convert.ToString(Products.Rows[i]["ImageName"]));
+
+            //    //CloudBlockBlob azureBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+            //    Stream blobStream = azureBlockBlob.OpenRead();
+            //    //return File(blobStream, azureBlockBlob.Properties.ContentType, fileName);
+
+            //    Products.Rows[i]["ImageName"] = file(blobStream, azureBlockBlob.Properties.ContentType, Products.Rows[i]["ImageName"]);
+            //}
+
             return Request.CreateResponse(HttpStatusCode.OK, Products);
         }
 

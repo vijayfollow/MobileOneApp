@@ -25,8 +25,8 @@
 });
 
 function AdminProducts(data) {
+    DestroyDataTable("#admin-products");   
     $("#tblProducts").empty();
-
     $.each(data, function (key, val) {
         $("#tblProducts").append('<tr value=' + val.ProductId + '>' +
             '<td id="prodName' + val.ProductId + '">' + val.ProductName + '</td>' +
@@ -225,12 +225,12 @@ function InsertUpdateProducts(Type) {
         contentType: false,
         processData: false,
         success: function (response) {
+            GetProducts(AdminProducts);
+            ClearProductFields();
             if (Type == InsertUpdateType.Insert)
                 alert("Product Added Successfully");
             else if (Type == InsertUpdateType.Update)
                 alert("Product Updated Successfully");
-            GetProducts(AdminProducts);
-            ClearProductFields();
         },
         error: function (error) {
 
