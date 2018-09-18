@@ -30,17 +30,20 @@ function Login() {
     }
 
     $.ajax({
-        url: "../Login/UserLogin",
+        url: LoginURL.UserLogin,
         type: 'Get',
-        dataType: 'json',
         data: loginData,
+        dataType: 'json',
         success: function (data) {
             if (data.length > 0) {
-                if (data[0].IsAdmin == LoginUser.Admin) {
-                    window.location.href = "../Admin/Index";
-                } else {
-                    window.location.href = "../Customer/Index";
-                }
+                window.location.href = webappUrl + 'Login/UserLogin?UserName=' + data[0].UserName + "&IsAdmin=" + data[0].IsAdmin;
+                //if (data[0].IsAdmin == LoginUser.Admin) {
+                //    window.location.href = webappUrl + 'Admin/Index?PostData1=' + data[0].UserName + "&PostData2=" + data[0].IsAdmin;
+                //    //window.location.href = "../Admin/Index";
+                //} else {
+                //    window.location.href = webappUrl + 'Customer/Index?PostData1=' + data[0].UserName + "&PostData2=" + data[0].IsAdmin;
+                //    //window.location.href = "../Customer/Index";
+                //}
             }
             ClearLoginFields();
         }, error: function (err) {
